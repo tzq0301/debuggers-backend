@@ -1,7 +1,8 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
+from sqlalchemy.orm import Session
 
-import db
+from db import User, get_db
 from model import LoginInfo
 
 app: FastAPI = FastAPI()
@@ -16,5 +17,6 @@ app.add_middleware(
 
 
 @app.post("/login")
-async def login(login_info: LoginInfo):
-    return login_info
+async def login(login_info: LoginInfo, db: Session = Depends(get_db)) -> bool:
+    return db.query(User).filter(User.username == login_info.username).filter(
+        User.password == login_info.password).one_or_none() is not None
