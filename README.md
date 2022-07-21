@@ -12,6 +12,17 @@ $ pip install -r requirements.txt
 
 ## How to run
 
+### Prerequisite
+
+You need a file named `.env` like below:
+
+```properties
+MYSQL_USERNAME=
+MYSQL_PASSWORD=
+MYSQL_URL=
+MYSQL_DATABASE=
+```
+
 ### Run in Dev mode
 
 ```shell
