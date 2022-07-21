@@ -28,7 +28,7 @@ MYSQL_DATABASE=
 ### Run in Dev mode
 
 ```shell
-uvicorn main:app --reload
+$ uvicorn main:app --reload
 ```
 
 ## How to extract requirements.txt
