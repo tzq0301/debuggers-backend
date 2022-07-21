@@ -25,6 +25,8 @@ MYSQL_URL=
 MYSQL_DATABASE=
 ```
 
+`MYSQL_URL` can be the host of the server like `114.14.1.4` (it will use the default port of MySQL, i.e. 3306) or the combination of the host and ip like `114.14.1.4:3310`. 
+
 ### Run in Dev mode
 
 ```shell
