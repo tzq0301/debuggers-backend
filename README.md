@@ -5,6 +5,8 @@
 * Python 3.8.13
 * FastAPI 0.79.0
 * pydantic 1.9.1
+* PyMySQL 1.0.2 
+* SQLAlchemy 1.4.39
 
 ```shell
 $ pip install -r requirements.txt
