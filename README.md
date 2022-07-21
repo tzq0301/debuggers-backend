@@ -1,5 +1,18 @@
 # Today's Singing Helper (Backend)
 
+## What is in the Project
+
+| file             | usage                                                 |
+|------------------|-------------------------------------------------------|
+| .env             | contains the properties of the project (maybe secret) |
+| config.py        | extracts the settings in the .env                     |
+| db.py            | tackles with the database                             |
+| db.sql           | the SQL scripts of the MySQL                          |
+| main.py          | the entrance of the whole application                 |
+| model.py         | contains the models of the application                |
+| requirements.txt | the requirements of the Python environment            |
+
+
 ## How to build
 
 * Python 3.8.13
