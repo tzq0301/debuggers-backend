@@ -18,8 +18,9 @@
 * Python 3.8.13
 * FastAPI 0.79.0
 * pydantic 1.9.1
-* PyMySQL 1.0.2 
+* PyMySQL 1.0.2
 * SQLAlchemy 1.4.39
+* scikit-learn == 0.23.2
 
 ```shell
 $ pip install -r requirements.txt
@@ -38,7 +39,7 @@ MYSQL_URL=
 MYSQL_DATABASE=
 ```
 
-`MYSQL_URL` can be the host of the server like `114.14.1.4` (it will use the default port of MySQL, i.e. 3306) or the combination of the host and ip like `114.14.1.4:3310`. 
+`MYSQL_URL` can be the host of the server like `114.14.1.4` (it will use the default port of MySQL, i.e. 3306) or the combination of the host and ip like `114.14.1.4:3310`.
 
 ### Run in Dev mode
 

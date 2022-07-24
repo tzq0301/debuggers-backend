@@ -1,3 +1,6 @@
 .idea
 .env
 __pycache__
+.ipynb_checkpoint
+
+config.json
