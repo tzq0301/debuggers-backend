@@ -35,10 +35,10 @@ Artist = Base.classes.artists
 session = Session(engine)
 
 # 模型和数据导入
-savefile = os.path.join('savemodel', '1658559234-1.joblib')
+savefile = os.path.join('savemodel', 'model.joblib')
 
 nbrs = joblib.load(savefile)
-datafile = os.path.join('savedata', '1658558322-1.json')
+datafile = os.path.join('savedata', 'data.json')
 
 with open(datafile, 'r') as f:
     data = json.load(f)
