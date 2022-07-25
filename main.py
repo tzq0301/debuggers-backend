@@ -1,4 +1,5 @@
 import imp
+import pickletools
 import sqlalchemy.exc
 from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
@@ -41,9 +42,10 @@ async def register(register_info: RegisterInfo, db: Session = Depends(get_db)) -
 @app.post("/upload/text/{text}")
 async def upload(text: str, file: UploadFile):
     emotion, distances, tracks = recommendation.recommend_from_text(text)
-    song, singer = recommendation.print_nbrs(distances, tracks)
+    song, singer, picture = recommendation.print_nbrs(distances, tracks)
 
     return {
         "song": song,
         "singer": singer,
+        "picture": picture
     }
