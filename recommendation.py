@@ -49,6 +49,10 @@ with open(datafile, 'r') as f:
 
 def softmax_dict(x: dict):
     s = sum(v for v in x.values())
+
+    if(s==0):
+        return x
+
     for k in x:
         x[k] /= s
     return x
