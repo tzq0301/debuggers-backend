@@ -105,7 +105,8 @@ def print_nbrs(distances, tracks):
         singer = session.query(Artist).filter_by(artist_id=a.artist_id)[0]
 
         # 这里我只是print， 有必要可以修改！
-        print(f'dist={d:.4f}: ({t.music_id})\t {t.music_name} - {singer.artist_name}')
+        # print(f'dist={d:.4f}: ({t.music_id})\t {t.music_name} - {singer.artist_name}')
+    return t.music_name, singer.artist_name
 
 
 if __name__ == "__main__":

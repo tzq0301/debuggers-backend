@@ -1,4 +1,6 @@
+import imp
 import pymysql
+import json
 from sqlalchemy import create_engine, Column, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -9,11 +11,18 @@ pymysql.install_as_MySQLdb()
 
 settings = get_settings()
 
-SQLALCHEMY_DATABASE_URL = f"""
-    mysql://{settings.mysql_username}:{settings.mysql_password}@{settings.mysql_url}/{settings.mysql_database}
-""".strip()
+# SQLALCHEMY_DATABASE_URL = f"""
+#     mysql://{settings.mysql_username}:{settings.mysql_password}@{settings.mysql_url}/{settings.mysql_database}
+# """.strip()
 
-engine = create_engine(SQLALCHEMY_DATABASE_URL)
+# engine = create_engine(SQLALCHEMY_DATABASE_URL)
+
+# 读取配置文件
+with open('config.json') as f:
+    config = json.load(f)
+
+engine = create_engine(config['db'])
+
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()

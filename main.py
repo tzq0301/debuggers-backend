@@ -1,10 +1,13 @@
+import imp
 import sqlalchemy.exc
 from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi import UploadFile
 from sqlalchemy.orm import Session
 
 from db import User, get_db
 from model import LoginInfo, RegisterInfo
+import recommendation
 
 app: FastAPI = FastAPI()
 
@@ -34,3 +37,13 @@ async def register(register_info: RegisterInfo, db: Session = Depends(get_db)) -
     except sqlalchemy.exc.IntegrityError:
         return False
     return True
+
+@app.post("/upload/text/{text}")
+async def upload(text: str, file: UploadFile):
+    emotion, distances, tracks = recommendation.recommend_from_text(text)
+    song, singer = recommendation.print_nbrs(distances, tracks)
+
+    return {
+        "song": song,
+        "singer": singer,
+    }
