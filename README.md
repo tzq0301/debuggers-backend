@@ -20,7 +20,7 @@
 * pydantic 1.9.1
 * PyMySQL 1.0.2
 * SQLAlchemy 1.4.39
-* scikit-learn == 0.23.2
+* scikit-learn 0.23.2
 
 ```shell
 $ pip install -r requirements.txt
@@ -45,6 +45,18 @@ MYSQL_DATABASE=
 
 ```shell
 $ uvicorn main:app --reload
+```
+
+If you don't have uvicorn:
+
+```shell
+$ pip install "uvicorn[standard]"
+```
+
+Run at localhost:8000 (you can change the port, don't forget to change the corresponding port in [debbugers-frontend](https://github.com/tzq0301/debuggers-frontend/blob/master/src/http/index.ts)):
+
+```shell
+$ uvicorn main:app --host 0.0.0.0 --port 8000
 ```
 
 ## How to extract requirements.txt
